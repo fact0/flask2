@@ -14,15 +14,12 @@ $("#lucky-form").on("submit", async function (evt) {
 		email,
 		color,
 	});
-	// console.log(luckyNumResp);
 	handleResponse(luckyNumResp);
 });
 
 /** handleResponse: deal with response from our lucky-num API. */
 
 function handleResponse(resp) {
-	// console.log(Object.keys(resp.data.errors).length);
-	// console.log(resp);
 	if (resp.data.errors) {
 		generateErrorHTML(resp);
 	} else {
@@ -39,7 +36,6 @@ function generateRespHTML(resp) {
 }
 
 function generateErrorHTML(resp) {
-	console.log(resp);
 	if (resp.data.errors.name) {
 		nameError = `<div>${resp.data.errors.name}</div>`;
 		$("#name-err").append(nameError);
